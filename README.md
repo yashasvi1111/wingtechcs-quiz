@@ -7,5 +7,5 @@ this is quiz page of wingtech which is a official technical forum of Babu Banara
 
 # contributors
 ================================================
--Shagufta Nisar
--Yashasvi Mishra 
+- Shagufta Nisar
+- Yashasvi Mishra 
