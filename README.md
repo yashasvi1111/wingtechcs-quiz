@@ -1,5 +1,10 @@
 # wingtechcs-quiz
-this is quiz page of wwingtech which is a official technical forum of babu banarasi das university
-#contributors
+this is quiz page of wingtech which is a official technical forum of Babu Banarasi Das University
+
+
+
+
+
+# contributors
 shagufta nisar
 yashasvi mishra 
