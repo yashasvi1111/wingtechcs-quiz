@@ -1,60 +1,47 @@
+<?php include "config.php";?>
 <html>
 <head>
-<title>Quiz:Wingtech </title>
- <?php include "head.inc"; ?>
-	</head>
+<title>WINGTECH QUIZ</title>
+<meta charset='utf-8'>
+
+ <link href="assets/css/homepage.css" rel="stylesheet">
+</head>
 <body>
-<?php include "nav.inc"; ?>
-<p>
-<hr>
-<?php include "quiz_con.php";?>
-<!---quiz page---->
-<?php 
-//$quiz=array(
-//array('number'=>'1','ques'=>'what is ur name?','A'=>'A.joe','B'=>'B.sam','C'=>'C.tom','D'=>'D.jerry'),
-//array('number'=>'2','ques'=>'How old are you?','A'=>'A.15', 'B'=>'B. 21',' C'=>'C. 30','D'=> 'D.None of the Above'));
- //$i=count($quiz);?>
-<div class="container">
-<div class="row">
-
-<form method='post' id='quiz_form'>
-<?php
-//for($l=0;$l<$i;$l++)
-	
-				$answer=mysqli_query($conn,'SELECT * FROM quiz_info ');
-			while($output=mysqli_fetch_array($answer,MYSQL_NUM))
-echo'<div id="question_'. $output[0].'" class=\'questions\'>
-<h2 id="question_'.$output[0].'">'.$output[0].'.'.$output[1].'</h2>
-<div class=\'align\'>
-
-<input type="radio" value="1" id=\'radio1_'.$output[0].' name='.$output[0].'>
-<label id=\'ans1_'.$output[0].' for=\'1\'>'.$output[2].'</label>
-<br/>
-
-<input type="radio" value="2" id=\'radio2_'.$output[0].' name='.$output[0].'>
-<label id=\'ans2_'.$output[0].' for=\'1\'>'.$output[3].'</label>
-<br/>
-
-<input type="radio" value="3" id=\'radio3_'.$output[0].' name='.$output[0].'>
-<label id=\'ans3_'.$output[0].' for=\'1\'>'.$output[4].'</label>
-<br/>
-<input type="radio" value="4" id=\'radio4_'.$output[0].' name='.$output[0].'>
-<label id=\'ans4_'.$output[0].' for=\'1\'>'.$output[5].'</label>
-<br/>
-
-</div>
-<input type="button" id=\'next\''.$output[0].' value=\'next!\' />
-</div>';?>
-</form>
-
-
-
-
-</div>
-</div>
-
-    <?php include "footer.inc"; ?>
-</body>
-
-</html>
-	
+	<?php $response=mysql_query("select * from questions");
+	if (!$response) { // add this check.
+    die('Invalid query: ' . mysql_error());
+}?>
+		<div>
+			<center>
+				<h1>Quiz</h1>
+			</center>
+		</div>
+	<form method='post' id='quiz_form'>
+	<table>
+	<?php while($result=mysql_fetch_array($response)){ ?>
+		<tr>
+		<div class="questions">
+		<?php echo $result['id'].".".$result['question_name'];?>
+		</div>	
+		<br>
+		<div class="options">
+			<input type="radio" name="option" value="A">
+			<?php echo $result['answer1'];?>
+			<br>
+			<input type="radio" name="option" value="B">
+			<?php echo $result['answer2'];?>
+			<br>
+			<input type="radio" name="option" value="C">
+			<?php echo $result['answer3'];?>
+			<br>
+			<input type="radio" name="option" value="D">
+			<?php echo $result['answer4'];?>
+		</div>
+		<br>
+		<input type="button" value='next' name='submit' class='button'/>
+		</tr>
+	<?php }?>
+	</table>
+	</form>
+	</body>
+	</html>
