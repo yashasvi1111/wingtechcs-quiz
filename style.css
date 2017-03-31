@@ -64,3 +64,21 @@ font-size:20px;
 	background-color:rgba(0,0,0,0.5);
 	border-radius:2px
 }
+.container h1{
+	font-size:75px;
+	text-align:center;
+}
+.score{
+padding:5px;
+font-size:60px;
+background-color:white;
+height:100px;
+width:600px;
+margin-top: 2cm;
+text-align: center;
+color:black;
+	
+}
+
+
+
